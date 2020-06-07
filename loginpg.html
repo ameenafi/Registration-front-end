@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body{
+	background: url("https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #673ab7 ;
+  background-color: #2196f3 ;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+::placeholder { /* Firefox, Chrome, Opera */
+    color: black;
+}
+
+
+
+button {
+  background-color: #2196f3 ; /* Green */
+  border: none;
+  color: white;
+  left: 50%;
+  top: 50%;
+  padding: 16px 32px;
+  text-align: center;
+  font-family: Bebas Neue Regular;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 250px;
+  border-radius: 25px;
+}
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+*body {
+	font-family: Times New Roman;
+  margin: 0 auto;  Center website
+  max-width: 800px; /* Max width */
+}*/
+
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+
+.form-area{
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  font-family:Times New Roman ;
+  color: rgb(255,255,255,1);
+  text-shadow: 2px 2px 4px #000000;
+
+  border-radius: 5px;
+
+}
+
+input {
+  border: none;
+  background-color: rgba(0,0,0,0);
+  border-bottom: 2px solid white;
+  width: 100%;
+  padding: 12px 100px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
+h3 {
+  margin: 0;
+  padding: 0 0 10px;
+  font-weight: bold;
+  font-size: 54px;
+  color: #ffffff;
+
+}
+
+label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+
+}
+h5 {
+  margin: 0;
+  padding: 0 0 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+
+}
+
+
+</style>
+  </head>
+  <body onLoad="javascript:opentab(event, 'Basic')">
+  <div class="tab">
+  <button class="tablinks" onclick="opentab(event, 'Basic')">Basic information</button>
+  <button class="tablinks" onclick="opentab(event, 'Contact')">Contact information</button>
+  <button class="tablinks" onclick="opentab(event, 'Education')">Education</button>
+  <button class="tablinks" onclick="Preview_form()">Preview</button>
+</div>
+
+<div id="Basic" class="tabcontent">
+  <h3>Basic information</h3>
+
+    <div class="container">
+<form  id="form1" class="login" action="javascript:opentab(event, 'Contact')" method="post">
+    <table>
+        <tr>
+          <td><label><h5>Name <span class="required">*</span></h5></label>  <i class="fa fa-user icon"></i></td>
+          <td><input type="text" name="Name" placeholder="Name" required></td>
+        </tr>
+        <tr>
+          <td><label><h5>DOB<span class="required">*</span></h5></label></td>
+          <td><input type="date" name="DOB" placeholder="DOB" required></td>
+        </tr>
+        <tr>
+          <td><label><h5>Phone NO. <span class="required">*</span></h5></label></i></td>
+          <td><input type="number" name="Phone no." placeholder="Phone NO." required></td>
+        </tr>
+        <tr>
+          <td><label><h5>Email<span class="required">*</span> </h5></label><i class="fa fa-envelope icon"></td>
+          <td><input type="text" name="Email" placeholder="Email" required></td>
+        </tr>
+        <tr>
+          <td><label>Profile photo</td>
+          <td><p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+          <p><label for="file" style="cursor: pointer;"> click here to Upload Image</label></p></td>
+          <td><p><img id="output" width="200" /></p></td>
+        </tr>
+      </table>
+      <button class="btn waves-effect waves-light" type="Next" name="action" >NEXT
+      </button>
+    </form>
+    </div>
+
+</div>
+
+
+<div id="Contact" class="tabcontent">
+<h3>Address</h3>
+  <form id="form2" class="login" action="javascript:opentab(event, 'Basic')" method="post">
+
+    <table>
+      <tr>
+        <td><label><h5>Mail Address</h5></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="Address" placeholder="Address line 1" ></td>
+      </tr>
+      <tr>
+        <td><input  type="text" placeholder="Address line 2"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="city"></td>
+        <td><input type="text" list="state" name="st" placeholder="State">
+                  <datalist id="state">
+                    <option value="Karnataka">
+                    <option value="Maharashtra">
+                    <option value="kerala">
+                   </datalist></td>
+        <td><input type="text" placeholder="Zip Code"></td>
+      </tr>
+    </table>
+
+    <label><h5>Permanent Address</h5></label>
+    <label for="Same">Same as Address</label>
+    <input type="checkbox" name="Same" />
+
+
+     <label><h5>Address</h5></label>
+       <table>
+         <tr>
+           <td><input type="text" name="Address" placeholder="Address line 1" ></td>
+         </tr>
+         <tr>
+           <td><input  type="text" placeholder="Address line 2"></td>
+         </tr>
+         <tr>
+           <td><input type="text" placeholder="city"></td>
+           <td><input type="text" list="state" name="st" placeholder="State">
+                     <datalist id="state">
+                       <option value="Karnataka">
+                       <option value="Maharashtra">
+                       <option value="kerala">
+                      </datalist></td>
+           <td><input type="text" placeholder="Zip Code"></td>
+         </tr>
+
+       </table>
+       <button class="btn waves-effect waves-light" type="back" name="action" >BACK
+       </button>
+       <button class="btn waves-effect waves-light" type="next" name="action2" formaction="javascript:opentab(event, 'Education')">NEXT
+       </button>
+     </form>
+
+
+     </div>
+
+
+<div id="Education" class="tabcontent">
+  <form id="form3" class="login" action="javascript:opentab(event, 'Contact')" method="post">
+  <h3>Education</h3>
+  <table>
+    <tr>
+      <td><label><h5>Higher Education</td>
+      </tr>
+      <tr>
+      <td><input type="text" list="qualification" name="quali" placeholder=Education>
+              <datalist id="qualification">
+                <option value="BE">
+                <option value="MSc">
+                <option value="MBA">
+               </datalist></td>
+    </tr>
+   <tr>
+     <td><label><h5>Skills</h5></td>
+     </tr>
+     <tr>
+       <td><input type="text" list="Skills" name="skill" placeholder="Skill">
+               <datalist id="Skills">
+                 <option value="python">
+                 <option value="java">
+                 <option value="html">
+                 <option value="CSS">
+                </datalist></td>
+   </tr>
+   <tr>
+     <td><label><h5>Resume <span class="required">*</span></h5></td>
+     <td><label><h5>Education doc <span class="required">*</span> </h5></td>
+   </tr>
+   <tr>
+     <td><input type="file" name="Resume" value="upload" required></td>
+     <td><input type="file" name="Education" value="upload" required></td>
+   </tr>
+  </table>
+  <button class="btn waves-effect waves-light" type="next" name="action">BACK</button>
+  <button class="btn waves-effect waves-light" type="next" name="action2" formaction="javascript:Preview_form()">PREVIEW</button>
+
+</form>
+</div>
+
+<div id="Preview" class="tabcontent">
+  <table>
+      <tr>
+        <td><label><h5>Name</h5></label></td>
+        <td><p id="text1"></p></td>
+      </tr>
+      <tr>
+        <td><label><h5>DOB</h5></label></td>
+        <td><p id="text2"></p></td>
+      </tr>
+      <tr>
+        <td><label><h5>Phone NO.</h5></label></td>
+        <td><p id="text3"></p></td>
+      </tr>
+      <tr>
+        <td><label><h5>Email</h5></label></td>
+        <td><p id="text4"></p></td>
+      </tr>
+      <tr>
+        <td><label>Profile photo</label></td>
+        <td><p></p></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td><label><h5>Mail Address</h5></td>
+      </tr>
+      <tr>
+        <td><p id="text6"></p></td>
+      </tr>
+      <tr>
+        <td><p id="text7"></p></td>
+      </tr>
+      <tr>
+        <td><p id="text8"></p></td>
+        <td><p id="text9"></p></td>
+        <td><p id="text10"></p></td>
+      </tr>
+    </table>
+    <table>
+      <label><h5>Address</h5></label>
+      <tr>
+        <td><p id="text12"></p></td>
+      </tr>
+      <tr>
+        <td><p id="text13"></p></td>
+      </tr>
+      <tr>
+        <td><p id="text14"></p></td>
+        <td><p id="text15"></p></td>
+        <td><p id="text16"></p></td>
+      </tr>
+   </table>
+   <table>
+     <tr>
+       <td><label><h5>Higher Education</td>
+       </tr>
+       <tr>
+       <td><p  id="text17"></p></td>
+     </tr>
+    <tr>
+      <td><label><h5>Skills</h5></td>
+      </tr>
+      <tr>
+        <td><p  id="text18"></p></td>
+    </tr>
+    <tr>
+      <td><label><h5>Resume</label></h5></td>
+      <td><label><h5>Education doc</label></h5></td>
+    </tr>
+    <tr>
+      <td><p  id="text19"></p></td>
+      <td><p  id="text20"></p></td>
+    </tr>
+   </table>
+<form class="Preview" action="javascript:opentab(event,'Complete')" method="post">
+<button class="btn waves-effect waves-light" type="next" name="action1" formaction="javascript:opentab(event, 'Education')">Back to Edit</button>
+
+<button class="btn waves-effect waves-light" type="submit" name="action2">SUBMIT</button>
+
+</form>
+</div>
+<div id="Complete" class="tabcontent">
+  <h3>THANK YOU FOR REGISTERING WITH US</h3>
+</div>
+<script>
+function opentab(evt, idName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(idName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function Preview() {
+  var x = document.getElementById("form1");
+  document.getElementById("text1").innerHTML=x.elements[0].value;
+  document.getElementById("text2").innerHTML=x.elements[1].value;
+  document.getElementById("text3").innerHTML=x.elements[2].value;
+  document.getElementById("text4").innerHTML=x.elements[3].value;
+
+  var x = document.getElementById("form2");
+  document.getElementById("text6").innerHTML=x.elements[0].value;
+  document.getElementById("text7").innerHTML=x.elements[1].value;
+  document.getElementById("text8").innerHTML=x.elements[2].value;
+  document.getElementById("text9").innerHTML=x.elements[3].value;
+  document.getElementById("text10").innerHTML=x.elements[4].value;
+  document.getElementById("text12").innerHTML=x.elements[6].value;
+  document.getElementById("text13").innerHTML=x.elements[7].value;
+  document.getElementById("text14").innerHTML=x.elements[8].value;
+  document.getElementById("text15").innerHTML=x.elements[9].value;
+  document.getElementById("text16").innerHTML=x.elements[10].value;
+
+
+  var x = document.getElementById("form3");
+  document.getElementById("text17").innerHTML=x.elements[0].value;
+  document.getElementById("text18").innerHTML=x.elements[1].value;
+  document.getElementById("text19").innerHTML=x.elements[2].value;
+  document.getElementById("text20").innerHTML=x.elements[3].value;
+
+}
+
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+
+function Preview_form()
+{
+  Preview();
+  opentab(event, 'Preview');
+
+}
+</script>
+
+
+  </body>
+</html>
